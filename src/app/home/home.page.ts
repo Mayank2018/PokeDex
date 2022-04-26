@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
-import { retry } from 'rxjs/operators';
+
 import { PokemonService } from './../services/pokemon.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class HomePage implements OnInit {
         this.offset +=25;
       }
       this.pokeService.getPokemon(this.offset).subscribe(res=>{
-        console.log('result:' , res);
+        //console.log('result:' , res);
         this.pokemon =[...this.pokemon, ...res];
 
         if(event){

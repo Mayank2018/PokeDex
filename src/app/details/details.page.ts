@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { PokemonService } from '../services/pokemon.service';
+import { PokemonService } from './../services/pokemon.service';
 
 @Component({
   selector: 'app-details',
@@ -9,20 +9,24 @@ import { PokemonService } from '../services/pokemon.service';
 })
 export class DetailsPage implements OnInit {
 
+
+
   details: any;
   slideOpts={
     autoplay:{
       display:1000,
-      disableOnInteraction:false
+      disableOnInteraction:true
     }
   };
+  
+    
   constructor(private route: ActivatedRoute, private pokeService : PokemonService) { }
-
   ngOnInit() {
       let index = this.route.snapshot.paramMap.get('index');
       this.pokeService.getPokeDetails(index).subscribe(details => {
-      //console. log( 'Details: ', details);
-      this.details;
+      //console.log( 'Details: ', details);
+      this.details=details;
+
       })
 
   }

@@ -15,7 +15,7 @@ export class PokemonService {
     
     
     getPokemon(offset =0){
-      return this.http.get(`${this.baseUrl}pokemon/?offset=${offset}&limit=25`).pipe(
+      return this.http.get(`${this.baseUrl}pokemon/?offset=${offset}&limit=125`).pipe(
        map(result =>{//return the results
           return result['results'];
         }),
